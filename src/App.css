@@ -4,4 +4,23 @@
     border: 4px groove black;
     border-radius: 8px;
   }
-  
+
+.movieTable {
+  border: 3px groove aqua;
+  border-radius: 20px;
+  background-color: azure;
+  margin: 10px auto;
+  text-align: center;
+}
+
+.movieTable thead {
+  font-size: 20px;
+  color: blue;
+  background-color:aquamarine
+}
+
+.movieTable td {
+  padding: 5px;
+  border-top: 1px solid black;
+  font-size: 18px;
+}
