@@ -1,7 +1,5 @@
 import './App.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.css';
-import Review from './Review';
-import ReviewForm from './ReviewForm';
 import ReviewList from './ReviewList';
 import Stars from './Stars';
 
@@ -9,39 +7,44 @@ import Stars from './Stars';
 function Movie(movie) {
     // console.log('in Movie Component');
     console.log(movie.props);
-    let theMovieTitle = movie.props.title;
 
+    let theMovieTitle = "";
+    let theMovieDirector = "";
+    let theMovieYear = "";
+    let theMoviePlotSum = "";
+
+    // $('#movieDisplay').toggle();
+
+    theMovieTitle = movie.props.title;
+    theMovieDirector = movie.props.director;
+    theMoviePlotSum = movie.props.plotsum;
+    theMovieYear = movie.props.year;
+    
     return (
-        <div className="card">
+        <div id="movieDisplay" className="card">
             <p className="card-title text-center ">
                {theMovieTitle}
             </p>
             <div className='card-body'>
                 <table>
                     <thead className='movieThead'>
-                        <tr>Plot Summary:</tr>
-                        <tr>{movie.props.plotsum}</tr>
-                        <tr> </tr>
-                        <tr>Director: {movie.props.director}</tr>
-                        <tr>Year: {movie.props.year}</tr>
+                        <tr>
+                            <td>DIRECTOR: {theMovieDirector}</td>
+                            <td>YEAR: {theMovieYear}</td>
+                        </tr>
+                        <tr>PLOT SUMMARY: </tr>
+                        <tr>{theMoviePlotSum}</tr>
                     </thead>
-                    <tbody>
-                        <Review />
-                        <ReviewForm />
-                        <ReviewList />
-                    </tbody>
+                    <tbody>     
+                    </tbody>  
                </table>
             </div>
             <div>
-                <Stars />
+                <ReviewList props={movie}/>
+                <Stars props={movie}/>
             </div>
-        </div>
-        
-        
+        </div>      
     )
-
-
-
 }
 
 export default Movie;

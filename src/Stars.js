@@ -4,19 +4,23 @@ import '../node_modules/bootstrap/dist/css/bootstrap.css';
 import { useState } from 'react';
 import {FaStar} from 'react-icons/fa'
 
-function Stars() {
-//    console.log('in Stars Component');
+function Stars(movie) {
+   // console.log('In Stars comp');
+   // console.log(movie.props.props.rating);
+
+    let previousRating = movie.props.props.rating;
 
     const [rating, setRating] = useState(null);
     const [hover, setHover] = useState(null);
 
+    // setRating(previousRating);
+
     return (
         <div className='Stars'>
             {[...Array(5)].map((star, index) => {
-                <FaStar key={index} />;
                 const currentRating = index +1;
                 return (
-                    <label>
+                    <label key={index}>
                         <input 
                             type="radio" 
                             name="rating"

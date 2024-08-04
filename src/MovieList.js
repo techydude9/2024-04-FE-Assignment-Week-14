@@ -10,13 +10,13 @@ function MovieList ({movies}) {
     const[selectedMovie, setMovie] = useState(movies[0])
 
     function selectMovie(e) {
-        console.log(e.target.id);
+        // console.log(e.target.id);
 
         let buttonPressed = e.target.id;
         let idxLit = buttonPressed.split('-');
         let idx = idxLit[1];
 
-        console.log (idx);
+        // console.log (idx);
 
         setMovie(movies[idx]);
         }
@@ -33,7 +33,7 @@ function MovieList ({movies}) {
                         <th>Select</th>
                     </tr>
                 </thead>
-                <tbody className="table-hover">
+                <tbody>
                     {movies.map((movie, index) => {
                         return (
                             <tr key={index}>
