@@ -2,10 +2,24 @@ import './App.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.css';
 import Movie from './Movie';
 import {useState} from 'react'
+import Stars from './Stars';
 
 function MovieList ({movies}) {
- //   console.log('in MovieList Component');
-    
+   console.log('in MovieList Component');
+
+    const[selectedMovie, setMovie] = useState(movies[0])
+
+    function selectMovie(e) {
+        console.log(e.target.id);
+
+        let buttonPressed = e.target.id;
+        let idxLit = buttonPressed.split('-');
+        let idx = idxLit[1];
+
+        console.log (idx);
+
+        setMovie(movies[idx]);
+        }
 
     return (
         <div>
@@ -27,17 +41,17 @@ function MovieList ({movies}) {
                                 <td>{movie.director}</td>
                                 <td>{movie.year}</td>
                                 <td>{movie.plotsum}</td>
-                                <td><button id="selectMovie" className="btn btn-outline-success" onClick={selectMovie(movie.index)}>Select</button></td>
+                                <td><button id={`selectMovie-${index}`} className="btn btn-outline-success" onClick={selectMovie}>Select</button></td>
                             </tr>
                         );
                     })}
                 </tbody>
             </table>
+            <Movie props={selectedMovie} />
         </div>
     )
 }
 
-function selectMovie(idx) {
-    <Movie movieIdx={idx} />
-}
+
+
 export default MovieList;

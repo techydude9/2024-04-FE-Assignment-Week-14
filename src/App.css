@@ -24,3 +24,23 @@
   border-top: 1px solid black;
   font-size: 18px;
 }
+
+.card {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.card-title {
+  background-color: gray;
+  font-weight: bold;
+  color:black;
+}
+
+.card-body {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.movieThead {
+  font-weight: bold;
+}
