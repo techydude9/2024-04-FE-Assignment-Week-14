@@ -4,17 +4,17 @@ import Review from './Review';
 import ReviewForm from './ReviewForm';
 
 
-function ReviewList(movie) {
+function ReviewList({selectedMovie}) {
     console.log('in ReviewList Component');
 
     return (
         <div className='card2'>
             <p className='card-title2'>Leave a Review</p>
             <div className='card-body2'>
-                 <Review props={movie}/>
+                 <Review selectedMovie={selectedMovie}/>
             </div>
             <div>
-                <ReviewForm props={movie}/>
+                <ReviewForm selectedMovie={selectedMovie}/>
             </div>
         </div>
     )

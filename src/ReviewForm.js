@@ -2,9 +2,9 @@ import './App.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.css';
 
 
-function ReviewForm(movie) {
+function ReviewForm({selectedMovie}) {
    // console.log('in ReviewForm Component');
-   console.log({movie})
+   console.log({selectedMovie})
 
     return (
         <div>
@@ -13,38 +13,17 @@ function ReviewForm(movie) {
                     <tr className="table-primary">
                         <th className="col-sm-1">Rating</th>
                         <th className="col-8">Reviews</th>
-                        <th className="col-sm-1"></th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>***</td>
-                        <td>Test review 1</td>
-                        <td>
-                            <button className="btn btn-outline-info btn-sm center">Read</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>**</td>
-                        <td>Test review 2</td>
-                        <td>
-                            <button className="btn btn-outline-info btn-sm center">Read</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>****</td>
-                        <td>Test review 3</td>
-                        <td>
-                            <button className="btn btn-outline-info btn-sm center">Read</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>****</td>
-                        <td>Test review 4</td>
-                        <td>
-                            <button className="btn btn-outline-info btn-sm center">Read</button>
-                        </td>
-                    </tr>
+                    {selectedMovie?.reviews.map((review, index) => {
+                        return (
+                            <tr key={index}>
+                                <td>{selectedMovie.rating}</td>
+                                <td>{review}</td>
+                            </tr>
+                        );
+                    })}
                 </tbody>
             </table>
         </div>

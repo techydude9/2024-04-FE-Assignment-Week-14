@@ -9,8 +9,8 @@ let allMovies = [
    year: '1977',
    director: 'George Lucas',
    plotsum: "Luke Skywalker joins forces with a Jedi Knight, a cocky pilot, a Wookiee and two droids to save the galaxy from the Empire's world-destroying battle station, while also attempting to rescue Princess Leia from the mysterious Darth Vader.",
-   reviews: [],
-   rating: null,
+   reviews: ['Testing a hardcode comment', 'Test 2 hd comment'],
+   rating: 1,
  },
  {
   title: 'Star Wars Empire Strikes Back',

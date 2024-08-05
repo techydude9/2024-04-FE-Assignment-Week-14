@@ -4,9 +4,9 @@ import ReviewList from './ReviewList';
 import Stars from './Stars';
 
 
-function Movie(movie) {
+function Movie({selectedMovie}) {
     // console.log('in Movie Component');
-    console.log(movie.props);
+    console.log(selectedMovie);
 
     let theMovieTitle = "";
     let theMovieDirector = "";
@@ -15,10 +15,11 @@ function Movie(movie) {
 
     // $('#movieDisplay').toggle();
 
-    theMovieTitle = movie.props.title;
-    theMovieDirector = movie.props.director;
-    theMoviePlotSum = movie.props.plotsum;
-    theMovieYear = movie.props.year;
+    if(selectedMovie != null ) {
+        theMovieTitle = selectedMovie.title;
+        theMovieDirector = selectedMovie.director;
+        theMoviePlotSum = selectedMovie.plotsum;
+        theMovieYear = selectedMovie.year;}
     
     return (
         <div id="movieDisplay" className="card">
@@ -32,16 +33,20 @@ function Movie(movie) {
                             <td>DIRECTOR: {theMovieDirector}</td>
                             <td>YEAR: {theMovieYear}</td>
                         </tr>
-                        <tr>PLOT SUMMARY: </tr>
-                        <tr>{theMoviePlotSum}</tr>
+                        <tr>
+                            <td>PLOT SUMMARY:</td>
+                        </tr>
+                        <tr>
+                            <td>{theMoviePlotSum}</td>
+                        </tr>
                     </thead>
                     <tbody>     
                     </tbody>  
                </table>
             </div>
             <div>
-                <ReviewList props={movie}/>
-                <Stars props={movie}/>
+                <ReviewList selectedMovie={selectedMovie}/>
+                <Stars selectedMovie={selectedMovie}/>
             </div>
         </div>      
     )

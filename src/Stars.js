@@ -4,16 +4,21 @@ import '../node_modules/bootstrap/dist/css/bootstrap.css';
 import { useState } from 'react';
 import {FaStar} from 'react-icons/fa'
 
-function Stars(movie) {
+function Stars({selectedMovie}) {
    // console.log('In Stars comp');
-   // console.log(movie.props.props.rating);
+    console.log(selectedMovie);
 
-    let previousRating = movie.props.props.rating;
-
-    const [rating, setRating] = useState(null);
+    // const [rating, setRating] = useState(null);
     const [hover, setHover] = useState(null);
+    
+    function setRating(rating) {
+        console.log(rating);
 
-    // setRating(previousRating);
+        if (selectedMovie != null) {
+        selectedMovie.rating = rating;
+        console.log(selectedMovie);
+        }
+    }
 
     return (
         <div className='Stars'>
@@ -30,14 +35,14 @@ function Stars(movie) {
                         <FaStar
                             className="star" 
                             size={30}
-                            color={currentRating <= (hover || rating) ? "#FFc107" : "e4e5e9"}
+                            color={currentRating <= (hover || selectedMovie?.rating) ? "#FFc107" : "e4e5e9"}
                             onMouseEnter={() => setHover(currentRating)}
                             onMouseLeave={() => setHover(null)}
                         />
                     </label>            
                 );                
             })}
-            <p>Your rating is {rating}</p>
+            <p>Your rating is {selectedMovie?.rating}</p>
         </div>
     )
 }

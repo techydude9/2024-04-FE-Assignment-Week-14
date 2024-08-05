@@ -7,7 +7,7 @@ import Stars from './Stars';
 function MovieList ({movies}) {
    console.log('in MovieList Component');
 
-    const[selectedMovie, setMovie] = useState(movies[0])
+    const[selectedMovie, setMovie] = useState(null)
 
     function selectMovie(e) {
         // console.log(e.target.id);
@@ -47,7 +47,7 @@ function MovieList ({movies}) {
                     })}
                 </tbody>
             </table>
-            <Movie props={selectedMovie} />
+            <Movie selectedMovie={selectedMovie} />
         </div>
     )
 }
